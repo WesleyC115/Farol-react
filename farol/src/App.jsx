@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css' 
+import './App.css'
 
 const faqData = [
   {
@@ -18,22 +18,29 @@ const faqData = [
 
 function FaqItem({ faq, index, openIndex, onToggle }) {
   const isOpen = index === openIndex;
+  const answerId = `faq-answer-${index}`;
 
   return (
     <div className="faq-item">
       {}
-      <div 
+      <button 
+        type="button"
         className="faq-question" 
         onClick={() => onToggle(index)}
+        aria-expanded={isOpen}
+        aria-controls={answerId}
       >
         <span>{faq.question}</span>
-        {}
         <span>{isOpen ? '−' : '+'}</span>
-      </div>
+      </button>
       
       {}
       {isOpen && (
-        <div className="faq-answer">
+        <div 
+          className="faq-answer"
+          id={answerId}
+          role="region"
+        >
           {faq.answer}
         </div>
       )}
@@ -49,8 +56,8 @@ function App() {
   };
 
   return (
-    <div className="faq-container">
-      <h1>Perguntas Frequentes</h1>
+    <div className="faq-container" aria-labelledby="faq-title">
+      <h1 id="faq-title">Perguntas Frequentes</h1>
       {faqData.map((faq, index) => (
         <FaqItem
           key={index}

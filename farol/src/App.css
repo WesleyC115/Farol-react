@@ -75,3 +75,34 @@
   border-top: 1px solid #444;
   line-height: 1.6;
 }
+
+.faq-question {
+  background-color: #1a1a1a;
+  border: none;
+  padding: 0.8em 1.2em; 
+  width: 100%; 
+  font-family: inherit; 
+  font-size: 1.1em; 
+  font-weight: 500; 
+  color: inherit;
+  text-align: left; 
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-question:hover {
+  background-color: #303030;
+}
+
+.faq-question:focus-visible {
+  outline: 3px solid #646cff; 
+  outline-offset: 2px;
+  border-radius: 4px; 
+}
+
+.faq-question:focus:not(:focus-visible) {
+  outline: none;
+}
